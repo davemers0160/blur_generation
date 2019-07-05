@@ -1,0 +1,34 @@
+# This is a parameter file that lists the location, and images to process
+# for the synthetic blurring of images to generate training data for a 
+# Convolutional NN.  The format is as follows:
+# <directory where the data is located>,<The infocus image>,<The ground truth image>
+#
+# Comments in this file shoudl start with '#'
+# The synthetic output will be the same name as the input file with a 'b' appened to
+# the end of the file and saved as a .png file and placed in the same directory as the
+# source files.
+#
+D:\IUPUI\Test_Data\Middlebury_Images\Wood1, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Wood1, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Wood2, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Wood2, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Rocks1, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Rocks1, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Rocks2, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Rocks2, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Plastic, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Plastic, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Lampshade2, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Lampshade2, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Lampshade1, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Lampshade1, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Aloe, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Aloe, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Baby1, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Baby1, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Cloth1, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Cloth1, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Cloth3, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Cloth3, view5.png, disp5.png
+D:\IUPUI\Test_Data\Middlebury_Images\Cloth4, view1.png, disp1.png
+D:\IUPUI\Test_Data\Middlebury_Images\Cloth4, view5.png, disp5.png

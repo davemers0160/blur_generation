@@ -1,0 +1,19 @@
+# This is a parameter file that lists the location, and images to process
+# for the synthetic blurring of images to generate training data for a 
+# Convolutional NN.  The format is as follows:
+# <directory where the data is located>,<The infocus image>,<The ground truth image>,<sigma value>
+#
+# Comments in this file should start with '#'
+# The synthetic output will be the same name as the input file with a 'b' appened to
+# the end of the file and saved as a .png file and placed in the same directory as the
+# source files.
+#
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 1.00
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 1.25
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 1.50
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 1.75
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 2.00
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 2.25
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 2.50
+#Miya_Tests/room1/, room_infocus.jpg, room_depthmap.jpg, 2.75
+D:/IUPUI/Test_Data/Maya_Test1/images/, disc_3_infocus.png, disc_3_dm.png, 2.56

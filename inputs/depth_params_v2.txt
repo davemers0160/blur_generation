@@ -1,0 +1,70 @@
+# This is a parameter file that lists the location, and images to process
+# for the synthetic blurring of images to generate training data for a 
+# Convolutional NN.  The format is as follows:
+# <directory where the data is located>,<The infocus image>,<The ground truth image>
+#
+# Comments in this file shoudl start with '#'
+# The synthetic output will be the same name as the input file with a 'b' appened to
+# the end of the file and saved as a .png file and placed in the same directory as the
+# source files.
+#
+Aloe/, view1.png, disp1.png
+Aloe/, view5.png, disp5.png
+Art/, view1.png, disp1.png
+Art/, view5.png, disp5.png
+Baby1/, view1.png, disp1.png
+Baby1/, view5.png, disp5.png
+Baby2/, view1.png, disp1.png
+Baby2/, view5.png, disp5.png
+Baby3/, view1.png, disp1.png
+Baby3/, view5.png, disp5.png
+Books/, view1.png, disp1.png
+Books/, view5.png, disp5.png
+Bowling1/, view1.png, disp1.png
+Bowling1/, view5.png, disp5.png
+Bowling2/, view1.png, disp1.png
+Bowling2/, view5.png, disp5.png
+Cloth1/, view1.png, disp1.png
+Cloth1/, view5.png, disp5.png
+Cloth2/, view1.png, disp1.png
+Cloth2/, view5.png, disp5.png
+Cloth3/, view1.png, disp1.png
+Cloth3/, view5.png, disp5.png
+Cloth4/, view1.png, disp1.png
+Cloth4/, view5.png, disp5.png
+#Computer/, view1.png, disp1.png
+#Computer/, view5.png, disp5.png
+Dolls/, view1.png, disp1.png
+Dolls/, view5.png, disp5.png
+#Drumsticks/, view1.png, disp1.png
+#Drumsticks/, view5.png, disp5.png
+#Dwarves/, view1.png, disp1.png
+#Dwarves/, view5.png, disp5.png
+Flowerpots/, view1.png, disp1.png
+Flowerpots/, view5.png, disp5.png
+Lampshade1/, view1.png, disp1.png
+Lampshade1/, view5.png, disp5.png
+Lampshade2/, view1.png, disp1.png
+Lampshade2/, view5.png, disp5.png
+Laundry/, view1.png, disp1.png
+Laundry/, view5.png, disp5.png
+Midd1/, view1.png, disp1.png
+Midd1/, view5.png, disp5.png
+Midd2/, view1.png, disp1.png
+Midd2/, view5.png, disp5.png
+Moebius/, view1.png, disp1.png
+Moebius/, view5.png, disp5.png
+Monopoly/, view1.png, disp1.png
+Monopoly/, view5.png, disp5.png
+Plastic/, view1.png, disp1.png
+Plastic/, view5.png, disp5.png
+Reindeer/, view1.png, disp1.png
+Reindeer/, view5.png, disp5.png
+Rocks1/, view1.png, disp1.png
+Rocks1/, view5.png, disp5.png
+Rocks2/, view1.png, disp1.png
+Rocks2/, view5.png, disp5.png
+Wood1/, view1.png, disp1.png
+Wood1/, view5.png, disp5.png
+Wood2/, view1.png, disp1.png
+Wood2/, view5.png, disp5.png

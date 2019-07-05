@@ -1,0 +1,48 @@
+# This is a parameter file that lists the location, and images to process
+# for the synthetic blurring of images to generate training data for a 
+# Convolutional NN.  The format is as follows:
+# <directory where the data is located>, <The infocus image>, <The ground truth image>, <sigma delta value>
+#
+# Comments in this file should start with '#'
+# The synthetic output will be the same name as the input file with a 'b' appended to
+# the end of the file and saved as a .png file and placed in the same directory as the
+# source files.
+#
+# Data Directory
+D:/IUPUI/Test_Data/rw4/
+#/home/owner/DfD/data/
+#
+# Data Files
+#------------------------------------------------------
+k60/left/exp_10/image_135_10.00.png, k60/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k60/left/exp_20/image_135_20.00.png, k60/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k60/left/exp_30/image_135_30.00.png, k60/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k60/left/exp_40/image_135_40.00.png, k60/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k60/left/exp_50/image_135_50.00.png, k60/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k60/left/exp_60/image_135_60.00.png, k60/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k60/left/exp_70/image_135_70.00.png, k60/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+#-----------------------------------------------------
+k61/left/exp_10/image_135_10.00.png, k61/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k61/left/exp_20/image_135_20.00.png, k61/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k61/left/exp_30/image_135_30.00.png, k61/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k61/left/exp_40/image_135_40.00.png, k61/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k61/left/exp_50/image_135_50.00.png, k61/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k61/left/exp_60/image_135_60.00.png, k61/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k61/left/exp_70/image_135_70.00.png, k61/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+#-----------------------------------------------------
+k62/left/exp_10/image_135_10.00.png, k62/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k62/left/exp_20/image_135_20.00.png, k62/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k62/left/exp_30/image_135_30.00.png, k62/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k62/left/exp_40/image_135_40.00.png, k62/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k62/left/exp_50/image_135_50.00.png, k62/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k62/left/exp_60/image_135_60.00.png, k62/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k62/left/exp_70/image_135_70.00.png, k62/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+#-----------------------------------------------------
+k63/left/exp_10/image_135_10.00.png, k63/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k63/left/exp_20/image_135_20.00.png, k63/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k63/left/exp_30/image_135_30.00.png, k63/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k63/left/exp_40/image_135_40.00.png, k63/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k63/left/exp_50/image_135_50.00.png, k63/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k63/left/exp_60/image_135_60.00.png, k63/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+k63/left/exp_70/image_135_70.00.png, k63/lidar/lidar_rng_left_00000_8bit_x6_inv.png, 2.56
+#-----------------------------------------------------

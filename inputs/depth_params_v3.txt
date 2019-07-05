@@ -1,0 +1,64 @@
+# This is a parameter file that lists the location, and images to process
+# for the synthetic blurring of images to generate training data for a 
+# Convolutional NN.  The format is as follows:
+# <directory where the data is located>, <The infocus image>, <The ground truth image>, <max sigma value>
+#
+# Comments in this file should start with '#'
+# The synthetic output will be the same name as the input file with a 'b' appended to
+# the end of the file and saved as a .png file and placed in the same directory as the
+# source files.
+#
+Middlebury_Images_Third/Aloe/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Aloe/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Art/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Art/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Baby1/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Baby1/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Baby2/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Baby2/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Baby3/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Baby3/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Books/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Books/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Bowling1/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Bowling1/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Bowling2/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Bowling2/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Cloth1/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Cloth1/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Cloth2/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Cloth2/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Cloth3/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Cloth3/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Cloth4/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Cloth4/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Dolls/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Dolls/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Flowerpots/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Flowerpots/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Lampshade1/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Lampshade1/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Lampshade2/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Lampshade2/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Laundry/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Laundry/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Midd1/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Midd1/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Midd2/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Midd2/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Moebius/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Moebius/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Monopoly/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Monopoly/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Plastic/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Plastic/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Reindeer/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Reindeer/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Rocks1/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Rocks1/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Rocks2/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Rocks2/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Wood1/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Wood1/, view5.png, disp5.png, 3.0
+Middlebury_Images_Third/Wood2/, view1.png, disp1.png, 3.0
+Middlebury_Images_Third/Wood2/, view5.png, disp5.png, 3.0
