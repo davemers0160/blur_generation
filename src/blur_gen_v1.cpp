@@ -25,7 +25,7 @@
 #include "file_parser.h"
 #include "num2string.h"
 
-#define MAX_CLASSES 256
+//#define MAX_CLASSES 256
 
 using namespace cv;
 using namespace std;
@@ -36,10 +36,12 @@ int main(int argc, char** argv)
     uint32_t row = 0;
     uint32_t col = 0;
     uint32_t index = 0;
+    uint32_t num_classes = 256;
 	
-    double minSigma = 0.32;
-	double maxSigma = 2.56 + minSigma;
-	
+    double min_sigma = 0.32;
+	//double max_sigma = 2.56 + min_sigma;
+    double sigma_step = 0.01;
+    
 	cv::Size InputImageSize;
 	cv::Mat InputImage;
 	cv::Mat GroundTruth;
@@ -59,6 +61,7 @@ int main(int argc, char** argv)
 	std::string input_image;
 	std::string groundtruth_image;
 	//std::string image_location;
+    std::string file_path;
 	std::string blur_image;
 	std::string ext;
 
@@ -97,7 +100,10 @@ int main(int argc, char** argv)
 
             // get the name of the input image without the extension
             groundtruth_image = data_directory + params[kdx][1];
-            maxSigma = std::stod(params[kdx][2]) + minSigma;
+            min_sigma = std::stod(params[kdx][2]);
+            sigma_step = std::stod(params[kdx][3]);
+            num_classes = std::stoi(params[kdx][4]);
+            //max_sigma = std::stod(params[kdx][2]) + min_sigma;
 
             //  read in ground truth image
             std::cout << "Reading ground truth image: " << groundtruth_image << std::endl;
@@ -105,9 +111,9 @@ int main(int argc, char** argv)
 
             // read infocus color image 
             input_image = data_directory + params[kdx][0];
-            get_file_parts(input_image, blur_image, ext);
-            std::string fmt = "%0.2f";
-            blur_image = blur_image + blur_type + num2str(minSigma, fmt) + "_" + num2str(maxSigma, fmt) + ".png";
+            get_file_parts(input_image, file_path, blur_image, ext);
+
+            blur_image = file_path + "/" + blur_image + blur_type + num2str(min_sigma, "%0.2f") + "_" + num2str(sigma_step, "%0.2f") + "_" + num2str(num_classes, "%04d") + ".png";
 
             std::cout << "Reading input image:        " << input_image << std::endl;
             InputImage = imread(input_image, CV_LOAD_IMAGE_COLOR);
@@ -134,9 +140,9 @@ int main(int argc, char** argv)
             GauBlurR.clear();
             GauBlurG.clear();
             GauBlurB.clear();
-            std::thread t_R(create_blur, InputImage_RGB[0], maxSigma, minSigma, MAX_CLASSES, std::ref(GauBlurR));
-            std::thread t_G(create_blur, InputImage_RGB[1], maxSigma, minSigma, MAX_CLASSES, std::ref(GauBlurG));
-            std::thread t_B(create_blur, InputImage_RGB[2], maxSigma, minSigma, MAX_CLASSES, std::ref(GauBlurB));
+            std::thread t_R(create_blur, InputImage_RGB[0], min_sigma, sigma_step, num_classes, std::ref(GauBlurR));
+            std::thread t_G(create_blur, InputImage_RGB[1], min_sigma, sigma_step, num_classes, std::ref(GauBlurG));
+            std::thread t_B(create_blur, InputImage_RGB[2], min_sigma, sigma_step, num_classes, std::ref(GauBlurB));
             t_R.join();
             t_G.join();
             t_B.join();
@@ -152,7 +158,7 @@ int main(int argc, char** argv)
             {
                 for (jdx = 0; jdx < col; jdx++)
                 {
-                    index = MAX_CLASSES - GroundTruth.at<uint8_t>(idx, jdx) - 1;
+                    index = num_classes - GroundTruth.at<uint8_t>(idx, jdx) - 1;
 
                     BlurMap_RGB[0].at<double>(idx, jdx) = GauBlurR[index].at<double>(idx, jdx);
                     BlurMap_RGB[1].at<double>(idx, jdx) = GauBlurG[index].at<double>(idx, jdx);
