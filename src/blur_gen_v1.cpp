@@ -113,7 +113,7 @@ int main(int argc, char** argv)
             input_image = data_directory + params[kdx][0];
             get_file_parts(input_image, file_path, blur_image, ext);
 
-            blur_image = file_path + "/" + blur_image + blur_type + num2str(min_sigma, "%0.2f") + "_" + num2str(sigma_step, "%0.3f") + "_" + num2str(num_classes, "%04d") + ".png";
+            blur_image = file_path + "/" + blur_image + blur_type + num2str(min_sigma, "%0.3f") + "_" + num2str(sigma_step, "%0.3f") + "_" + num2str(num_classes, "%04d") + ".png";
 
             std::cout << "Reading input image:        " << input_image << std::endl;
             InputImage = imread(input_image, CV_LOAD_IMAGE_COLOR);
