@@ -1,0 +1,18 @@
+# This is a parameter file that lists the location, and images to process
+# for the synthetic blurring of images.  The data is arranged as follows: 
+#
+# data_directory
+# the_in-focus_image, ground_truth_image, min_sigma, sigma_step, num_classes
+#
+# Comments in this file should start with '#'
+# The synthetic output will be the same name as the input file with a the 
+# min_sigma, sigma_step and num_classes appended to the end of the file and  
+# saved as a .png file and placed in the same directory as the 
+# the_in-focus_image.
+#
+# Data Directory
+D:/IUPUI/Test_Data/test_blur/
+#/home/owner/DfD/data/
+#
+# Data Files
+image_00.png, depth_000.png, 0.32, 0.1, 256, 000

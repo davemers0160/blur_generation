@@ -31,6 +31,9 @@ if(${PLATFORM} STREQUAL "Laptop")
 elseif(${PLATFORM} STREQUAL "MainGear")
     set(COMMON_ROOT "~/Common")
     set(DFD_COMMON_ROOT "~/Projects/dfd_common")
+elseif(${PLATFORM} STREQUAL "LaptopN")
+    set(COMMON_ROOT "C:/Projects/Common")
+    set(DFD_COMMON_ROOT "C:/Projects/dfd_common")
 elseif(${PLATFORM} STREQUAL "HPC")
     set(COMMON_ROOT "$HOME/Common")
     set(DFD_COMMON_ROOT "$HOME/Projects/dfd_common")
@@ -59,7 +62,7 @@ message(" ")
 
 
 # find OpenCV
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 4 REQUIRED)
 if (OpenCV_FOUND)
 	set(project_includes ${project_includes} ${OpenCV_INCLUDE_DIRS})
     

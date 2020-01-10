@@ -14,7 +14,7 @@
 #include <chrono>
 #include <vector>
 #include <thread>
-
+#include <stdexcept>
 
 // OPENCV Includes
 #include <opencv2/core.hpp>           
@@ -25,11 +25,6 @@
 #include "file_parser.h"
 #include "num2string.h"
 
-//#define MAX_CLASSES 256
-
-using namespace cv;
-using namespace std;
-
 int main(int argc, char** argv)
 {
 	uint32_t idx, jdx, kdx;
@@ -39,7 +34,6 @@ int main(int argc, char** argv)
     uint32_t num_classes = 256;
 	
     double min_sigma = 0.32;
-	//double max_sigma = 2.56 + min_sigma;
     double sigma_step = 0.01;
     
 	cv::Size InputImageSize;
@@ -65,10 +59,12 @@ int main(int argc, char** argv)
 	std::string blur_image;
 	std::string ext;
 
+    std::ofstream DataLogStream;
+
     std::string blur_type = "_lin_";
 
 	std::vector<int32_t> compression_params;
-	compression_params.push_back(CV_IMWRITE_PNG_COMPRESSION);
+    compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
 	compression_params.push_back(0);
 
 	std::vector<std::vector<std::string>> params;
@@ -88,8 +84,12 @@ int main(int argc, char** argv)
         parse_csv_file(parseFilename, params);
 
         // the first entry is the deepest common root directory where the images are stored
-        data_directory = params[0][0];
+        data_directory = path_check(params[0][0]);
         params.erase(params.begin());
+
+        DataLogStream.open((data_directory + "input_file.txt"), ios::out);
+
+        DataLogStream << data_directory << std::endl << std::endl;
 
         std::cout << "Images to parse: " << params.size() << std::endl;
 
@@ -99,24 +99,35 @@ int main(int argc, char** argv)
             start_time = chrono::system_clock::now();
 
             // get the name of the input image without the extension
-            groundtruth_image = data_directory + params[kdx][1];
+            input_image = params[kdx][0];
+            groundtruth_image = params[kdx][1];
             min_sigma = std::stod(params[kdx][2]);
             sigma_step = std::stod(params[kdx][3]);
             num_classes = std::stoi(params[kdx][4]);
+            blur_type = "_" + params[kdx][5] + "_";
+
             //max_sigma = std::stod(params[kdx][2]) + min_sigma;
 
             //  read in ground truth image
-            std::cout << "Reading ground truth image: " << groundtruth_image << std::endl;
-            GroundTruth = imread(groundtruth_image, CV_LOAD_IMAGE_GRAYSCALE);
+            std::cout << "Reading ground truth image: " << (data_directory + groundtruth_image) << std::endl;
+            GroundTruth = imread((data_directory + groundtruth_image), cv::IMREAD_GRAYSCALE);
+            if(GroundTruth.empty())
+                throw std::runtime_error("ground truth file is empty");
 
             // read infocus color image 
-            input_image = data_directory + params[kdx][0];
-            get_file_parts(input_image, file_path, blur_image, ext);
+            //input_image = data_directory + params[kdx][0];
+            get_file_parts((data_directory + input_image), file_path, blur_image, ext);
+            file_path = path_check(file_path);
 
-            blur_image = file_path + "/" + blur_image + blur_type + num2str(min_sigma, "%0.3f") + "_" + num2str(sigma_step, "%0.3f") + "_" + num2str(num_classes, "%04d") + ".png";
+            blur_image = blur_image + blur_type + num2str(min_sigma, "%0.3f") + "_" + num2str(sigma_step, "%0.3f") + "_" + num2str(num_classes, "%04d") + ".png";
 
-            std::cout << "Reading input image:        " << input_image << std::endl;
-            InputImage = imread(input_image, CV_LOAD_IMAGE_COLOR);
+            std::cout << "Reading input image:        " << (data_directory + input_image) << std::endl;
+            InputImage = imread((data_directory + input_image), cv::IMREAD_COLOR);
+            if(InputImage.empty())
+                throw std::runtime_error("Image file is empty");
+
+            DataLogStream << input_image << ", " << blur_image << ", " << groundtruth_image << std::endl;
+
             InputImageSize = InputImage.size();
 
             // split the in focus color image into RGB channel (integers)
@@ -170,8 +181,8 @@ int main(int argc, char** argv)
             // Combine the three channels and save the defocus image
             merge(BlurMap_RGB, BlurMap);
 
-            std::cout << "Writing blur mapping to file: " << blur_image << std::endl << std::endl;
-            imwrite(blur_image, BlurMap, compression_params);
+            std::cout << "Writing blur image to file: " << (data_directory + blur_image) << std::endl << std::endl;
+            cv::imwrite((data_directory + blur_image), BlurMap, compression_params);
 
             stop_time = chrono::system_clock::now();
             elapsed_time = chrono::duration_cast<d_sec>(stop_time - start_time);
@@ -188,6 +199,8 @@ int main(int argc, char** argv)
     {
         std::cout << e.what() << std::endl;
     }
+
+    DataLogStream.close();
 
     std::cout << "Press enter to close..." << std::endl;
     std::cin.ignore();
