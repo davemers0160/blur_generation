@@ -116,10 +116,11 @@ int main(int argc, char** argv)
 
             // read infocus color image 
             //input_image = data_directory + params[kdx][0];
-            get_file_parts((data_directory + input_image), file_path, blur_image, ext);
+            //get_file_parts((data_directory + input_image), file_path, blur_image, ext);
+            get_file_parts(input_image, file_path, blur_image, ext);
             file_path = path_check(file_path);
 
-            blur_image = blur_image + blur_type + num2str(min_sigma, "%0.3f") + "_" + num2str(sigma_step, "%0.3f") + "_" + num2str(num_classes, "%04d") + ".png";
+            blur_image = file_path + blur_image + blur_type + num2str(min_sigma, "%0.3f") + "_" + num2str(sigma_step, "%0.3f") + "_" + num2str(num_classes, "%04d") + ".png";
 
             std::cout << "Reading input image:        " << (data_directory + input_image) << std::endl;
             InputImage = imread((data_directory + input_image), cv::IMREAD_COLOR);
