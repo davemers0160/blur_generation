@@ -104,7 +104,9 @@ int main(int argc, char** argv)
             min_sigma = std::stod(params[kdx][2]);
             sigma_step = std::stod(params[kdx][3]);
             num_classes = std::stoi(params[kdx][4]);
-            blur_type = "_" + params[kdx][5] + "_";
+            blur_type = "_";
+            if(params[kdx].size() == 6)
+                blur_type += params[kdx][5] + "_";
 
             //max_sigma = std::stod(params[kdx][2]) + min_sigma;
 
@@ -120,7 +122,7 @@ int main(int argc, char** argv)
             get_file_parts(input_image, file_path, blur_image, ext);
             file_path = path_check(file_path);
 
-            blur_image = file_path + blur_image + blur_type + num2str(min_sigma, "%0.3f") + "_" + num2str(sigma_step, "%0.3f") + "_" + num2str(num_classes, "%04d") + ".png";
+            blur_image = file_path + blur_image + blur_type + num2str(min_sigma, "%0.3f_") + num2str(sigma_step, "%0.3f_") + num2str(num_classes, "%04d.png");
 
             std::cout << "Reading input image:        " << (data_directory + input_image) << std::endl;
             InputImage = imread((data_directory + input_image), cv::IMREAD_COLOR);
