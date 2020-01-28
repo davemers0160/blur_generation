@@ -108,8 +108,6 @@ int main(int argc, char** argv)
             if(params[kdx].size() == 6)
                 blur_type += params[kdx][5] + "_";
 
-            //max_sigma = std::stod(params[kdx][2]) + min_sigma;
-
             //  read in ground truth image
             std::cout << "Reading ground truth image: " << (data_directory + groundtruth_image) << std::endl;
             GroundTruth = imread((data_directory + groundtruth_image), cv::IMREAD_GRAYSCALE);
